@@ -1,11 +1,11 @@
 //REUQEST DATA START HERE //
-const baseUrl = "https://swapi.dev/api/films/";
+const filmUrl = "https://swapi.dev/api/films/";
 const titles = document.querySelectorAll("#title");
 const year = document.querySelectorAll("#year");
 //GRAB TITLE,RELEASE DATE AND OUTPUT IN THE INNER HTML
 const infos = [];
 const characters = [];
-fetch(baseUrl)
+fetch(filmUrl)
   .then((res) => res.json())
   .then((data) => {
     data.results.forEach((info) => {
