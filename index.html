@@ -1,65 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/38e66b1324.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/38e66b1324.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="header">
-        <h1>Star Wars API stuff... eww</h1>
+      <h1>Star Wars API stuff... eww</h1>
     </div>
 
     <!--about section start-->
     <section class="section-wrapper">
-        <div class="card-wrapper">
-            <div class="card about-btn">
-                <div class="title"><p id="title"></p></div>
-                <div class="year"><p id="year"></p></div>
-            </div>
-            <div class="card about-btn">
-                <div class="title"><p id="title"></p></div>
-                <div class="year"><p id="year"></p></div>
-            </div>
-            <div class="card about-btn">
-                <div class="title"><p id="title"></p></div>
-                <div class="year"><p id="year"></p></div>
-            </div>
-            <div class="card about-btn">
-                <div class="title"><p id="title"></p></div>
-                <div class="year"><p id="year"></p></div>
-            </div>
-            <div class="card about-btn">
-                <div class="title"><p id="title"></p></div>
-                <div class="year"><p id="year"></p></div>
-            </div>
-            <div class="card about-btn">
-                <div class="title"><p id="title"></p></div>
-                <div class="year"><p id="year"></p></div>
-            </div>
-        </div>                
+      <div class="card-wrapper">
+        <div class="card about-btn">
+          <div class="title loader"></div>
+          <div class="year"></div>
+        </div>
+        <div class="card about-btn">
+          <div class="title loader"></div>
+          <div class="year"></div>
+        </div>
+        <div class="card about-btn">
+          <div class="title loader"></div>
+          <div class="year"></div>
+        </div>
+        <div class="card about-btn">
+          <div class="title loader"></div>
+          <div class="year"></div>
+        </div>
+        <div class="card about-btn">
+          <div class="title loader"></div>
+          <div class="year"></div>
+        </div>
+        <div class="card about-btn">
+          <div class="title loader"></div>
+          <div class="year"></div>
+        </div>
+      </div>
     </section>
     <!--about section end-->
 
     <!--about modal start-->
     <div id="aboutModal" class="aboutModal">
-        <div class="modal-wrapper">
-            <div class="modal-header">
-                <span onclick="closeAboutModal()" class="closingIcon fa fa-close"></span>
-                <div class="h1"><h1 class="title" id="titles"></h1></div>
-            </div>
-            <div class="modal-content">
-                <div class="text-box">
-                    <h1 id="chars">Characters</h1>
-                    <p id="name"></p>
-                </div>
-            </div>
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <span
+            onclick="closeAboutModal()"
+            class="closingIcon fa fa-close"
+          ></span>
+          <div class="h1"><h1 class="title" id="titles"></h1></div>
         </div>
+        <div class="modal-content">
+          <div class="text-box">
+            <h1 id="chars">Characters</h1>
+            <p id="name" class="loader"></p>
+          </div>
+        </div>
+      </div>
     </div>
     <!--about modal end-->
-</body>
-<script src="./app.js"></script>
+  </body>
+  <script src="./app.js"></script>
 </html>

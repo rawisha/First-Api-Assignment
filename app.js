@@ -1,28 +1,54 @@
 //REUQEST DATA START HERE //
 const filmUrl = "https://swapi.dev/api/films/";
-const titles = document.querySelectorAll("#title");
-const year = document.querySelectorAll("#year");
-//GRAB TITLE,RELEASE DATE AND OUTPUT IN THE INNER HTML
+const titles = document.querySelectorAll(".title");
+const year = document.querySelectorAll(".year");
+
+/* Empty array holders for infos (result data) and Character urls*/
 const infos = [];
 const characters = [];
+
+/* Boolens for data and characers if loaded or not*/
+let dataLoaded = true;
+let charactersLoaded = true;
+
+/* Fetching filmUrl and converting them to json
+// Looping over each Movies and pushing the data into Infos above
+*/
 fetch(filmUrl)
   .then((res) => res.json())
   .then((data) => {
+    dataLoaded = false;
+
     data.results.forEach((info) => {
       infos.push(info);
     });
+    /*
+    // Looping over each title in the dom and presenting them with corresponding 
+    // data fetched from Infos array we put up above
+    */
     for (i = 0; i < titles.length; i++) {
       titles[i].innerHTML = infos[i].title;
       year[i].innerHTML = infos[i].release_date;
+      document.querySelectorAll(".title")[i].classList.remove("loader");
+      /*
+      // Creating multiple promises from character urls and converting the response to json
+      */
       const promises = infos[i].characters.map((url) =>
-        fetch(url).then((res) => res.json())
+        fetch(url)
+          .then((res) => res.json())
+          .catch((error) => {
+            console.log("Something went terrabily wrong...");
+          })
       );
-
+      /*
+      // Grabbing all the promises data and pushing them into character arrays we put up above
+      */
       const setChars = () => {
         Promise.all(promises).then((res) => {
           characters.push(res);
         });
       };
+      // Running the setChars function
       setChars();
     }
   });
@@ -35,11 +61,21 @@ fetch(filmUrl)
 const modal = document.querySelector("#aboutModal");
 //the function for printing out information, with the sent index from openAboutModal as a parameter
 const showStaff = (valueOne) => {
-  const characterNamesAsHTML = characters[valueOne]
-    .map((char) => `<p>${char.name}</p>`)
-    .join("");
-  document.querySelector("#name").innerHTML = characterNamesAsHTML;
-  document.querySelector("#titles").innerHTML = infos[valueOne].title;
+  /*
+  // Checking first if characters is empty or not
+  // once the value is above 0, then renderes out the data in the modal window
+  */
+  if (characters.length > 0) {
+    charactersLoaded = false;
+    document.querySelector("#name").classList.remove("loader");
+    // Creating p elements for each data looped over characters array we put up above
+    // rendering out each information to the modal window with the help of index (Value one)
+    const characterNamesAsHTML = characters[valueOne]
+      .map((char) => `<p>${char.name}</p>`)
+      .join("");
+    document.querySelector("#name").innerHTML = characterNamesAsHTML;
+    document.querySelector("#titles").innerHTML = infos[valueOne].title;
+  }
 };
 
 //function for opening the about modal
