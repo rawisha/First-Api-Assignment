@@ -167,3 +167,7 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.noClick {
+  pointer-events: none;
+}
