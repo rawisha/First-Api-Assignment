@@ -5,7 +5,7 @@ const year = document.querySelectorAll(".year");
 
 /* Empty array holders for infos (result data) and Character urls*/
 const infos = [];
-const characters = [];
+const characters = [].sort();
 
 /* Fetching filmUrl and converting them to json
 // Looping over each Movies and pushing the data into Infos above
@@ -67,7 +67,7 @@ const showStaff = (valueOne) => {
     // Creating p elements for each data looped over characters array we put up above
     // rendering out each information to the modal window with the help of index (Value one)
     const characterNamesAsHTML = characters[valueOne]
-      .map((char) => `<p>${char.name}</p>`)
+      .map((char) => `<p>${char.name}</p>`).sort()
       .join("");
     document.querySelector("#name").innerHTML = characterNamesAsHTML;
     document.querySelector("#titles").innerHTML = infos[valueOne].title;
