@@ -5,7 +5,7 @@ const year = document.querySelectorAll(".year");
 
 /* Empty array holders for infos (result data) and Character urls*/
 const infos = [];
-const characters = [].sort();
+const characters = [];
 
 /* Fetching filmUrl and converting them to json
 // Looping over each Movies and pushing the data into Infos above
